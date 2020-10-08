@@ -1,0 +1,9 @@
+repositories:
+  src/vrpn:
+    type: git
+    url: git@github.com:vrpn/vrpn.git
+    version: master
+  src/vrpn_client_ros:
+    type: git
+    url: git@github.com:ros-drivers/vrpn_client_ros.git
+    version: kinetic-devel
