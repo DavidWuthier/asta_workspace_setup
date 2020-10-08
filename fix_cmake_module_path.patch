@@ -1,0 +1,25 @@
+From 8d4f9fa79dc4ec1259fbbf9a295cfde0666e389c Mon Sep 17 00:00:00 2001
+From: DavidWuthier <dwuthier@gmail.com>
+Date: Thu, 8 Oct 2020 14:51:42 +0200
+Subject: [PATCH] Fix cmake module path
+
+---
+ CMakeLists.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c8eb07f..8d2b336 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,6 +1,8 @@
+ cmake_minimum_required(VERSION 2.8.3)
+ project(vrpn_client_ros)
+ 
++set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/../vrpn/cmake)
++
+ find_package(catkin REQUIRED COMPONENTS geometry_msgs roscpp tf2_ros)
+ find_package(VRPN REQUIRED)
+ 
+-- 
+2.25.1
+
