@@ -1,19 +1,23 @@
 #!/bin/bash
 
-sudo apt install git python3-catkin-tools python3-vcstool
-
-patch () {
-  wget https://raw.githubusercontent.com/DavidWuthier/asta_workspace_setup/main/$1.patch
-  git am -s < $1.patch
-  rm $1.patch
-}
-
 for DISTRO in noetic melodic kinetic; do
   if [ -e /opt/ros/$DISTRO ]; then
     CURRENT_DISTRO=$DISTRO
     break
   fi
 done
+
+if [ "$CURRENT_DISTRO" = "noetic" ]; then
+  PYTHON_VERSION=3
+fi
+
+sudo apt install git python$PYTHON_VERSION-catkin-tools python$PYTHON_VERSION-vcstool
+
+patch () {
+  wget https://raw.githubusercontent.com/DavidWuthier/asta_workspace_setup/main/$1.patch
+  git am -s < $1.patch
+  rm $1.patch
+}
 
 if [ -n "$CURRENT_DISTRO" ]; then
   echo "setting up workspace for ROS $CURRENT_DISTRO"
