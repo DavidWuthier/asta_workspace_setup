@@ -20,20 +20,23 @@ patch () {
 }
 
 if [ -n "$CURRENT_DISTRO" ]; then
-  echo "setting up workspace for ROS $CURRENT_DISTRO"
+  echo "setting up ASTA workspace for ROS $CURRENT_DISTRO"
   cd ~
   if [ ! -e asta_ws ]; then
-    mkdir -p asta_ws/src
-    cd asta_ws
+    mkdir -p asta_ws/vrpn_ws/src
+    cd asta_ws/vrpn_ws
     catkin init
     catkin config --extend /opt/ros/$CURRENT_DISTRO
-    wget https://raw.githubusercontent.com/DavidWuthier/asta_workspace_setup/main/asta_ws.repos
-    vcs import < asta_ws.repos
+    wget https://raw.githubusercontent.com/DavidWuthier/asta_workspace_setup/main/vrpn_ws.repos
+    vcs import < vrpn_ws.repos
     cd src/vrpn
     git submodule init
     git submodule update
-    patch catkinize_package
-    cd ../vrpn_client_ros
+    mkdir build
+    cd build
+    cmake ..
+    make
+    cd ../../vrpn_client_ros
     patch fix_cmake_module_path
     catkin build
   else
