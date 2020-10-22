@@ -36,6 +36,7 @@ if [ -n "$CURRENT_DISTRO" ]; then
     cd build
     cmake ..
     make
+    sudo make install
     cd ../../vrpn_client_ros
     patch fix_cmake_module_path
     catkin build
