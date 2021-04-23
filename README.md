@@ -4,4 +4,6 @@
 
 `cd asta_workspace_setup`
 
+`sudo chmod +x asta_workspace_setup.sh`
+
 `./asta_workspace_setup.sh`
