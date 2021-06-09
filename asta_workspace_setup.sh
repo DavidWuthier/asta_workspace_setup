@@ -28,8 +28,10 @@ if [ -n "$CURRENT_DISTRO" ]; then
     catkin init
     catkin config --extend /opt/ros/$CURRENT_DISTRO
     wget https://raw.githubusercontent.com/DavidWuthier/asta_workspace_setup/main/vrpn_ws.repos
-    vcs import < vrpn_ws.repos
-    cd src/vrpn
+    cd src
+    git clone https://github.com/vrpn/vrpn.git
+    git clone https://github.com/ros-drivers/vrpn_client_ros.git
+    cd vrpn
     git submodule init
     git submodule update
     mkdir build
