@@ -1,6 +1,12 @@
 # ROS Workspace setup for using Optitrack in ASTA
 
-Make sure you have setup an SSH key [https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh].
+Make sure you have defined you identity:
+
+`git config --global user.email "you@example.com"`
+
+`git config --global user.name "Your Name"`
+
+Then, clone the repository and run the installation script:
 
 `git clone https://github.com/DavidWuthier/asta_workspace_setup.git`
 
