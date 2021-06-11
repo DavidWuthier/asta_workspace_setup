@@ -1,6 +1,8 @@
 # ROS Workspace setup for using Optitrack in ASTA
 
-Make sure you have defined you identity:
+## Installation
+
+First, make sure that git is installed and that you have defined your identity:
 
 `git config --global user.email "you@example.com"`
 
@@ -15,3 +17,11 @@ Then, clone the repository and run the installation script:
 `sudo chmod +x asta_workspace_setup.sh`
 
 `./asta_workspace_setup.sh`
+
+## Usage
+
+Run the launchfile contained in `vrpn_client_ros`:
+
+`roslaunch vrpn_client_ros sample.launch server:=SERVER_ADDRESS`
+
+Replace `SERVER_ADDRESS` by the IP address displayed in the "streaming pane" of Motive on the Optitrack computer.
