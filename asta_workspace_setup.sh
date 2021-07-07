@@ -11,7 +11,7 @@ if [ "$CURRENT_DISTRO" = "noetic" ]; then
   PYTHON_VERSION=3
 fi
 
-sudo apt install git python$PYTHON_VERSION-catkin-tools python$PYTHON_VERSION-vcstool
+sudo apt install git python$PYTHON_VERSION-catkin-tools python$PYTHON_VERSION-vcstool -y
 
 patch () {
   wget https://raw.githubusercontent.com/DavidWuthier/asta_workspace_setup/main/$1.patch
